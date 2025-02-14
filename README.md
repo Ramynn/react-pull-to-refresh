@@ -1,5 +1,3 @@
-Here's the professional README.md file for your package:
-
 # React Pull to Refresh 🔄
 
 [![npm version](https://img.shields.io/npm/v/react-use-pull-to-refresh.svg?style=flat-square)](https://www.npmjs.com/package/react-use-pull-to-refresh)
@@ -120,4 +118,4 @@ Override CSS variables in your global styles:
 
 ## License 📄
 
-MIT © [Ramin Mohammadi](https://github.com/Ramynn)The README now presents a complete professional package documentation while maintaining technical accuracy and marketing appeal.
+MIT © [Ramin Mohammadi](https://github.com/Ramynn)
