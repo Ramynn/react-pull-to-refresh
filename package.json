@@ -1,5 +1,5 @@
 {
-  "name": "react-pull-to-refresh",
+  "name": "react-use-pull-to-refresh",
   "type": "module",
   "version": "1.0.0",
   "main": "dist/index.js",
@@ -36,11 +36,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Ramynn/react-pull-to-refresh.git"
+    "url": "https://github.com/Ramynn/react-use-pull-to-refresh.git"
   },
-  "homepage": "https://github.com/Ramynn/react-pull-to-refresh",
+  "homepage": "https://github.com/Ramynn/react-use-pull-to-refresh",
   "bugs": {
-    "url": "https://github.com/Ramynn/react-pull-to-refresh/issues"
+    "url": "https://github.com/Ramynn/react-use-pull-to-refresh/issues"
   },
   "license": "MIT"
 }
