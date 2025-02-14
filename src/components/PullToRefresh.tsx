@@ -1,56 +1,48 @@
-import React, { memo, useMemo } from 'react';
-import { usePullToRefresh } from '../hooks/use-pull-to-refresh';
-import type { PullToRefreshProps } from '../types';
+import { useRef, useEffect, memo } from 'react';
+import { Spinner } from './Spinner';
+import {usePWA} from "@/hooks/usePwa";
+import {usePullToRefresh} from "@/hooks/use-pull-to-refresh";
 
-const Spinner = memo(({ progress, rotation }: {
-    progress: number;
-    rotation: number
-}) => (
-    <div
-        className="ptr-spinner"
-        style={{
-            transform: `translateY(${progress * 20}px) rotate(${rotation}deg)`,
-            opacity: progress
-        }}
-        role="status"
-        aria-live="polite"
-        aria-label={progress >= 1 ? 'Refreshing content' : 'Pull to refresh'}
-    >
-        <div className="ptr-spinner-inner" />
-    </div>
-));
+interface PullToRefreshProps {
+    onRefresh: () => Promise<void>;
+    children: React.ReactNode;
+    disabled?: boolean;
+    enableOnlyInPWA?: boolean;
+    pullThreshold?: number;
+    maxPull?: number;
+}
 
 export const PullToRefresh = memo(({
-                                       children,
                                        onRefresh,
+                                       children,
+                                       disabled = false,
+                                       enableOnlyInPWA = false,
                                        pullThreshold = 100,
-                                       maxPull = 150,
-                                       resistance = 0.5,
-                                       renderSpinner,
-                                       className,
-                                       ...props
+                                       maxPull = 150
                                    }: PullToRefreshProps) => {
-    const {
-        containerRef,
-        pullDistance,
-        isRefreshing
-    } = usePullToRefresh({ onRefresh, pullThreshold, maxPull, resistance });
+    const isPWA = usePWA();
+    const isEnabled = !disabled && (!enableOnlyInPWA || isPWA);
+    const { containerRef, pullDistance } = usePullToRefresh({
+        onRefresh,
+        pullThreshold,
+        maxPull,
+        isEnabled
+    });
 
-    const { progress, rotation } = useMemo(() => ({
-        progress: Math.min(pullDistance / pullThreshold, 1),
-        rotation: Math.min(pullDistance / (pullThreshold / 360), 720)
-    }), [pullDistance, pullThreshold]);
+    const progress = Math.min(pullDistance / pullThreshold, 1);
 
     return (
-        <div
-            ref={containerRef}
-            className={`ptr-container ${className || ''}`}
-            {...props}
-        >
-            {renderSpinner ? (
-                renderSpinner(progress, rotation, isRefreshing)
-            ) : (
-                <Spinner progress={pullDistance} rotation={rotation} />
+        <div ref={containerRef} className="ptr-container">
+            {isEnabled && (
+                <div
+                    className="ptr-indicator"
+                    style={{
+                        transform: `translateY(${Math.min(pullDistance, maxPull)}px)`,
+                        opacity: progress
+                    }}
+                >
+                    <Spinner />
+                </div>
             )}
             {children}
         </div>
