@@ -1,0 +1,50 @@
+:root {
+    --ptr-spinner-color: #007aff;
+    --ptr-spinner-size: 1.5rem;
+    --ptr-stroke-width: 0.2em;
+    --ptr-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ptr-container-zindex: 1000;
+}
+
+.ptr-container {
+    position: relative;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    contain: strict;
+    z-index: var(--ptr-container-zindex);
+}
+
+.ptr-spinner {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--ptr-spinner-size);
+    height: var(--ptr-spinner-size);
+    transition:
+            transform 0.3s var(--ptr-easing),
+            opacity 0.2s linear;
+    pointer-events: none;
+    backface-visibility: hidden;
+}
+
+.ptr-spinner-inner {
+    width: 100%;
+    height: 100%;
+    border: var(--ptr-stroke-width) solid rgba(0, 0, 0, 0.1);
+    border-top-color: var(--ptr-spinner-color);
+    border-radius: 50%;
+    animation: ptr-spin 1s linear infinite;
+    will-change: transform, opacity;
+}
+
+@keyframes ptr-spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ptr-spinner-inner {
+        animation-duration: 1.5s;
+        animation-timing-function: linear;
+    }
+}

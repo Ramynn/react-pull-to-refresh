@@ -1,0 +1,46 @@
+{
+  "name": "react-pull-to-refresh",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint src --ext ts,tsx",
+    "format": "prettier --write src",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^16.8 || ^17 || ^18",
+    "react-dom": "^16.8 || ^17 || ^18"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.10.16",
+    "@types/react": "^19.0.8",
+    "eslint": "^9.20.1",
+    "prettier": "^3.5.1",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
+  },
+  "keywords": [
+    "react",
+    "pull-to-refresh",
+    "pwa",
+    "ios",
+    "hook",
+    "performance",
+    "touch-gesture"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ramynn/react-pull-to-refresh.git"
+  },
+  "homepage": "https://github.com/Ramynn/react-pull-to-refresh",
+  "bugs": {
+    "url": "https://github.com/Ramynn/react-pull-to-refresh/issues"
+  },
+  "license": "MIT"
+}

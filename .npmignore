@@ -1,0 +1,16 @@
+src/
+__tests__/
+examples/
+tsconfig.json
+rollup.config.js
+.eslintrc
+.prettierrc
+size-limit.json
+
+# Git
+.gitignore
+.gitattributes
+
+# Docs
+CHANGELOG.md
+CONTRIBUTING.md

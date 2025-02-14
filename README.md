@@ -1,9 +1,9 @@
 # React Pull to Refresh 🔄
 
-[![npm version](https://img.shields.io/npm/v/react-pull-to-refresh.svg?style=flat-square)](https://www.npmjs.com/package/react-pull-to-refresh)
-[![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-pull-to-refresh?style=flat-square)](https://bundlephobia.com/package/react-pull-to-refresh)
-[![npm downloads](https://img.shields.io/npm/dm/react-pull-to-refresh.svg?style=flat-square)](https://npm-stat.com/charts.html?package=react-pull-to-refresh)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your-username/react-pull-to-refresh/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/react-use-pull-to-refresh.svg?style=flat-square)](https://www.npmjs.com/package/react-use-pull-to-refresh)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-use-pull-to-refresh?style=flat-square)](https://bundlephobia.com/package/react-use-pull-to-refresh)
+[![npm downloads](https://img.shields.io/npm/dm/react-use-pull-to-refresh.svg?style=flat-square)](https://npm-stat.com/charts.html?package=react-use-pull-to-refresh)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your-username/react-use-pull-to-refresh/blob/main/LICENSE)
 
 A high-performance, iOS-style pull-to-refresh component for React PWAs with TypeScript support and customizable touch gestures.
 
@@ -22,16 +22,18 @@ A high-performance, iOS-style pull-to-refresh component for React PWAs with Type
 ## Installation 📦
 
 ```bash
-npm install react-pull-to-refresh
+npm install react-use-pull-to-refresh
 # or
-yarn add react-pull-to-refresh
+yarn add react-use-pull-to-refresh
+# or
+pnpm install react-use-pull-to-refresh
 ```
 
 ## Basic Usage 🚀
 
 ```tsx
-import { PullToRefresh } from 'react-pull-to-refresh';
-import 'react-pull-to-refresh/styles.css';
+import { PullToRefresh } from 'react-use-pull-to-refresh';
+import 'react-use-pull-to-refresh/styles.css';
 
 const App = () => {
   const handleRefresh = async () => {
@@ -79,7 +81,7 @@ const App = () => {
 ## Hook Usage 🎣
 
 ```tsx
-import { usePullToRefresh } from 'react-pull-to-refresh';
+import { usePullToRefresh } from 'react-use-pull-to-refresh';
 
 const CustomRefresh = ({ children }) => {
   const { containerRef, pullDistance } = usePullToRefresh({
