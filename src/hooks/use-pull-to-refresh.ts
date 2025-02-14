@@ -33,7 +33,7 @@ export const usePullToRefresh = (
     }, [onRefresh]);
 
     const updatePullDistance = useCallback((delta: number) => {
-        const dampedDelta = applyRubberBandEffect(delta, pullThreshold, maxPull, 1);
+        const dampedDelta = applyRubberBandEffect(delta, pullThreshold, maxPull);
 
         cancelAnimationFrame(animationFrame.current!);
         animationFrame.current = requestAnimationFrame(() => {
