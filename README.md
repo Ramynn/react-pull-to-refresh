@@ -1,6 +1,3 @@
-Here's an SEO-optimized README.md file:
-
-```markdown
 # React Pull to Refresh 🔄
 
 [![npm version](https://img.shields.io/npm/v/react-pull-to-refresh.svg?style=flat-square)](https://www.npmjs.com/package/react-pull-to-refresh)
